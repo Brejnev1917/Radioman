@@ -1,102 +1,88 @@
 package ru.netology.domain;
 
+
+
 public class Radio {
-
-    private int maxVolume;
-    private int minVolume;
+    private int currentRadioStation;
     private int currentVolume;
-    private int maxStation;
-    private int minStation;
-    private int currentStation;
 
-    // ГРОМКОСТЬ
-// Максимальная громкость
-    public int getMaxVolume() {
-        return maxVolume;
+    public int setCurrentRadioStation(int currentRadioStation) {
+
+        if (currentRadioStation > 9) {
+            currentRadioStation = 0;
+        }
+
+        if (currentRadioStation < 0) {
+            currentRadioStation = 0;
+        }
+
+        if (currentRadioStation > 0) {
+            this.currentRadioStation = currentRadioStation;
+        }
+
+        this.currentRadioStation = currentRadioStation;
+
+
+        return currentRadioStation;
     }
 
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = 10;
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
     }
 
-    // Минимальная  громкость
-    public int getMinVolume() {
-        return minVolume;
+
+    public void setCurrentVolume(int currentVolume) {
+
+        if (currentVolume > 10) {
+            return;
+        }
+        if (currentVolume < 0) {
+            return;
+        }
+        this.currentVolume = currentVolume;
     }
 
-    public void setMinVolume(int minVolume) {
-        this.minVolume = 0;
-    }
-
-    // Текущая громкость
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int currentVolume) {
-        this.currentVolume = currentVolume;
-    }
 
-    //Увеличение громкости +
-    public void upVolume() {
-        if (currentVolume == maxVolume) {
-            return;
+    public void increaseVolume() {
+        if (currentVolume < 10) {
+            currentVolume = currentVolume + 1;
         }
-        this.currentVolume++;
+
     }
 
-    //Уменьшение громкости -
-    public void downVolume() {
-        if (currentVolume == minVolume) {
-            return;
+    public void reducerVolume() {
+        if (currentVolume > 0) {
+            currentVolume = currentVolume - 1;
         }
-        this.currentVolume--;
-    }
-
-    // СТАНЦИИ
-    // Максимальная станция
-    public int getMaxStation() {
-        return maxStation;
-    }
-
-    public void setMaxStation(int maxStation) {
-        this.maxStation = 9;
-    }
-
-    // Минимальная  станция
-    public int getMinStation() {
-        return minStation;
-    }
-
-    public void setMinStation(int minStation) {
-        this.minStation = 0;
-    }
-
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    //Увеличение станции
-    public void upStation() {
-        if (currentStation < maxStation) {
-            currentStation++;
-            this.currentStation++;
-            return;
+        if (currentVolume == 0) {
+            currentVolume = currentVolume;
         }
-        this.currentStation = minStation;
     }
 
-    //Уменьшение станции
-    public void downStation() {
-        if (currentStation > minStation) {
-            currentStation--;
-            this.currentStation--;
-            return;
+    public void increaseRadioStation() {
+
+        if (currentRadioStation < 9) {
+            currentRadioStation = currentRadioStation + 1;
         }
-        this.currentStation = maxStation;
+        else {
+            currentRadioStation = 0;
+        }
+
     }
 
-    //Установка текущей станции
-    public void setCurrentStation(int currentStation) {
+    public void reducerRadioStation() {
+        if (currentRadioStation > 0) {
+            currentRadioStation = currentRadioStation - 1;
+        }
+        if (currentRadioStation == 0) {
+            currentRadioStation = 9;
+        }
+
     }
+
+
 }
