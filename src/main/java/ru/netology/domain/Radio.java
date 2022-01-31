@@ -1,88 +1,66 @@
 package ru.netology.domain;
 
-
-
 public class Radio {
-    private int currentRadioStation;
     private int currentVolume;
+    private int currentStation;
+    private int countStation = 10;
 
-    public int setCurrentRadioStation(int currentRadioStation) {
-
-        if (currentRadioStation > 9) {
-            currentRadioStation = 0;
-        }
-
-        if (currentRadioStation < 0) {
-            currentRadioStation = 0;
-        }
-
-        if (currentRadioStation > 0) {
-            this.currentRadioStation = currentRadioStation;
-        }
-
-        this.currentRadioStation = currentRadioStation;
-
-
-        return currentRadioStation;
+    public Radio(int countStation) {
+        this.countStation = countStation;
     }
 
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
-    }
+    public Radio() {
 
+    }
 
     public void setCurrentVolume(int currentVolume) {
-
-        if (currentVolume > 10) {
-            return;
-        }
         if (currentVolume < 0) {
-            return;
+            currentVolume = 0;
+        }
+        if (currentVolume > 10) {
+            currentVolume = 10;
         }
         this.currentVolume = currentVolume;
     }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-
     public void increaseVolume() {
         if (currentVolume < 10) {
             currentVolume = currentVolume + 1;
         }
-
     }
-
-    public void reducerVolume() {
+    public void decreaseVolume() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
-        if (currentVolume == 0) {
-            currentVolume = currentVolume;
+    }
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+    public void setCurrentStation(int currentStation) {
+        if (currentStation < 0) {
+            currentStation = countStation - 1;
+        }
+        if (currentStation > countStation - 1) {
+            currentStation = 0;
+        }
+        this.currentStation = currentStation;
+    }
+    public void nextStation() {
+        if (currentStation < countStation - 1) {
+            currentStation = currentStation + 1;
+        } else {
+            currentStation = 0;
         }
     }
-
-    public void increaseRadioStation() {
-
-        if (currentRadioStation < 9) {
-            currentRadioStation = currentRadioStation + 1;
+    public void prevStation() {
+        if (currentStation > 0) {
+            currentStation = currentStation - 1;
         }
         else {
-            currentRadioStation = 0;
+            currentStation = countStation - 1;
         }
-
     }
 
-    public void reducerRadioStation() {
-        if (currentRadioStation > 0) {
-            currentRadioStation = currentRadioStation - 1;
-        }
-        if (currentRadioStation == 0) {
-            currentRadioStation = 9;
-        }
-
+    public int getCurrentStation() {
+        return currentStation;
     }
-
-
 }
