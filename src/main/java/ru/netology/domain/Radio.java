@@ -1,66 +1,108 @@
 package ru.netology.domain;
 
 public class Radio {
+
+    private int maxVolume = 100;
+    private int minVolume = 0;
     private int currentVolume;
+    private int maxStation = 9;
+    private int minStation = 0;
     private int currentStation;
-    private int countStation = 10;
+    private int numberOfStations = 10;
 
-    public Radio(int countStation) {
-        this.countStation = countStation;
-    }
+    public Radio () {}
 
-    public Radio() {
-
+    public Radio(int numberOfStations) {
+        this.numberOfStations = numberOfStations;
     }
 
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < 0) {
-            currentVolume = 0;
-        }
-        if (currentVolume > 10) {
-            currentVolume = 10;
-        }
-        this.currentVolume = currentVolume;
+    // ГРОМКОСТЬ
+// Максимальная громкость
+    public int getMaxVolume() {
+        return maxVolume;
     }
-    public void increaseVolume() {
-        if (currentVolume < 10) {
-            currentVolume = currentVolume + 1;
-        }
+    public void setMaxVolume(int maxVolume) {
+        this.maxVolume = 100;
     }
-    public void decreaseVolume() {
-        if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
-        }
+    // Минимальная  громкость
+    public int getMinVolume() {
+        return minVolume;
     }
+    public void setMinVolume(int minVolume) {
+        this.minVolume = 0;
+    }
+    // Текущая громкость
     public int getCurrentVolume() {
         return currentVolume;
     }
-    public void setCurrentStation(int currentStation) {
-        if (currentStation < 0) {
-            currentStation = countStation - 1;
+    public void setCurrentVolume(int currentVolume) {
+        this.currentVolume = currentVolume;}
+    //Увеличение громкости +
+    public void upVolume() {
+        if (currentVolume == maxVolume) {
+            return;
         }
-        if (currentStation > countStation - 1) {
-            currentStation = 0;
+        this.currentVolume++;
+    }
+    //Уменьшение громкости -
+    public void downVolume() {
+        if (currentVolume == minVolume) {
+            return;
+        }
+        this.currentVolume--;
+    }
+    // СТАНЦИИ
+    // Максимальная станция
+    public int getMaxStation() {
+        return maxStation;
+    }
+    public void setMaxStation(int maxStation) {
+        this.maxStation = 9;
+    }
+    // Минимальная  станция
+    public int getMinStation() {
+        return minStation;
+    }
+    public void setMinStation(int minStation) {
+        this.minStation = 0;
+    }
+    // Текущая станция
+    public int getCurrentStation() {
+        return currentStation;
+    }
+
+    //Увеличение станции
+    public void upStation() {
+        if (currentStation < maxStation) {
+            this.currentStation ++;
+            return;
+        }
+        this.currentStation = minStation;
+    }
+    //Уменьшение станции
+    public void downStation() {
+        if (currentStation > minStation) {
+            this.currentStation --;
+            return;
+        }
+        this.currentStation = maxStation;
+    }
+
+    //Установка текущей станции
+    public void setCurrentStation(int currentStation) {
+        if (currentStation > maxStation) {
+            return;
+        }
+        if (currentStation < minStation) {
+            return;
         }
         this.currentStation = currentStation;
     }
-    public void nextStation() {
-        if (currentStation < countStation - 1) {
-            currentStation = currentStation + 1;
-        } else {
-            currentStation = 0;
-        }
-    }
-    public void prevStation() {
-        if (currentStation > 0) {
-            currentStation = currentStation - 1;
-        }
-        else {
-            currentStation = countStation - 1;
-        }
-    }
 
-    public int getCurrentStation() {
-        return currentStation;
+    //Количество станций
+    public int getNumberOfStations () { return numberOfStations; }
+
+    public void setNumberOfStations(int numberOfStations) {
+        this.numberOfStations = numberOfStations;
     }
 }
