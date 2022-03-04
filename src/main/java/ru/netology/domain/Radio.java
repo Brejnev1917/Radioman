@@ -13,8 +13,17 @@ public class Radio {
     public Radio() {
     }
 
-    public Radio(int numberOfStations) {
+    public Radio(int maxVolume, int minVolume, int currentVolume, int maxStation, int minStation, int currentStation, int numberOfStations) {
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
+        this.currentVolume = currentVolume;
+        this.maxStation = maxStation;
+        this.minStation = minStation;
+        this.currentStation = currentStation;
         this.numberOfStations = numberOfStations;
+    }
+
+    public Radio(int i) {
     }
 
     // ГРОМКОСТЬ

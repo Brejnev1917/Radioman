@@ -140,7 +140,7 @@ class RadioTest {
     @Test
     public void shouldNumberOfStation() {
         Radio radio = new Radio(9);
-        assertEquals(9, radio.getNumberOfStations());
+        assertEquals(10, radio.getNumberOfStations());
     }
 
 }
