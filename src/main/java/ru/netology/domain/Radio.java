@@ -23,8 +23,7 @@ public class Radio {
         this.numberOfStations = numberOfStations;
     }
 
-    public Radio(int i) {
-    }
+
 
     // ГРОМКОСТЬ
 // Максимальная громкость
