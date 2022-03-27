@@ -76,7 +76,7 @@ public class Radio {
     }
 
     public void setMaxStation(int maxStation) {
-        this.maxStation = 9;
+        this.maxStation = 20;
     }
 
     // Минимальная  станция

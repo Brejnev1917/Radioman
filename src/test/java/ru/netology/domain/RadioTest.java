@@ -143,5 +143,11 @@ class RadioTest {
         radio.setNumberOfStations(9);
         assertEquals(9, radio.getNumberOfStations());
     }
-
+    @Test
+    public void shouldMax20Station() {
+        Radio radio = new Radio();
+        radio.setMaxStation(20);
+        radio.setCurrentStation(15);
+        assertEquals(15, radio.getCurrentStation());
+    }
 }
