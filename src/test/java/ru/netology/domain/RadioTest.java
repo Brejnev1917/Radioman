@@ -101,7 +101,7 @@ class RadioTest {
         radio.setMaxStation(9);
         radio.setMinStation(0);
         radio.downStation();
-        assertEquals(9, radio.getCurrentStation());
+        assertEquals(20, radio.getCurrentStation());
     }
 
     @Test
