@@ -147,6 +147,7 @@ class RadioTest {
     public void shouldMax20Station() {
         Radio radio = new Radio();
         radio.setMaxStation(20);
+        radio.setMinStation(0);
         radio.setCurrentStation(15);
         assertEquals(15, radio.getCurrentStation());
     }
