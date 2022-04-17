@@ -5,7 +5,7 @@ public class Radio {
     private int maxVolume = 100;
     private int minVolume = 0;
     private int currentVolume;
-    private int maxStation = 20;
+    private int maxStation = 10;
     private int minStation = 0;
     private int currentStation;
     private int numberOfStations = 20;

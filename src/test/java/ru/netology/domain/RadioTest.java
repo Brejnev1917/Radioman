@@ -118,7 +118,7 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setMinStation(0);
         radio.setCurrentStation(10);
-        assertEquals(0, radio.getCurrentStation());
+        assertEquals(10, radio.getCurrentStation());
     }
 
     @Test
@@ -126,7 +126,7 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setMinStation(0);
         radio.setCurrentStation(10);
-        assertEquals(0, radio.getCurrentStation());
+        assertEquals(10, radio.getCurrentStation());
     }
 
     @Test
